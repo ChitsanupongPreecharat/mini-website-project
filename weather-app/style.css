@@ -78,7 +78,7 @@ body{
 
 .weather-box img{
     width: 60%;
-    margin-top: 30px;
+    
 }
 
 .weather-box .temperature{
@@ -87,13 +87,17 @@ body{
     font-size: 4rem;
     font-weight: 800;
     margin-top: 30px;
-    margin-left: -16px;
+    
 }
+
+
+
 
 .weather-box .temperature span{
     position: absolute;
     margin-left: 4px;
     font-size: 1.5rem;
+    text-align: center;
 }
 
 .weather-box .description{
@@ -101,13 +105,37 @@ body{
     font-size: 22px;
     font-weight: 500;
     text-transform: capitalize;
+    
 }
 
+.weather-box .feel-like{
+    display: flex;
+    margin-top: 5px;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    justify-content: center;
+}
+
+.weather-box .min-maxtemp{
+    margin-top: 5px;
+    display: flex;
+    font-family: 22px;
+    font-weight: 300;
+    text-transform: capitalize;
+    justify-content: center;
+    margin-left: 10px
+    
+}
+
+.weather-box .min-maxtemp .mintemp ,.weather-box .min-maxtemp .maxtemp{
+    margin-right: 15px;
+}
 .weather-details{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .weather-details .humidity, .weather-details .wind{
@@ -144,6 +172,14 @@ body{
     color: #06283D;
     font-size: 14px;
     font-weight: 500;
+}
+
+.time{
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    
+    
 }
 
 .not-found{
