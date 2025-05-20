@@ -33,7 +33,9 @@ search.addEventListener('click', () => {
             const description = document.querySelector('.weather-box .description');
             const humidity = document.querySelector('.weather-details .humidity span');
             const wind = document.querySelector('.weather-details .wind span');
-
+            const min_temp = document.querySelector('.weather-box .min-maxtemp .mintemp ')
+            const max_temp = document.querySelector('.weather-box .min-maxtemp .maxtemp')
+            const feel_like = document.querySelector('.weather-box .feel-like')
             switch (json.weather[0].main) {
                 case 'Clear':
                     image.src = 'img/clear.png';
@@ -59,19 +61,33 @@ search.addEventListener('click', () => {
                     image.src = '';
             }
 
-            temperature.innerHTML = `${json.main.temp}<span>°C</span>`;
+            temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${json.wind.speed}Km/h`;
+            min_temp.innerHTML = `min: ${parseInt(json.main.temp_min)}°C`;
+            max_temp.innerHTML = `max: ${parseInt(json.main.temp_max)}°C`;
+            feel_like.innerHTML = `feel like: ${parseInt(json.main.feels_like)}°C`;
+
 
             weatherBox.style.display = '';
             weatherDetails.style.display = '';
             weatherBox.classList.add('fadeIn');
             weatherDetails.classList.add('fadeIn');
-            container.style.height = '590px';
+            container.style.height = '610px';
 
 
         });
+
+        const now = new Date();
+
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        const time = document.querySelector('.time');
+        time.innerHTML = `${timeString}`
 
 
 });
