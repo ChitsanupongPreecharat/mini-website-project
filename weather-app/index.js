@@ -76,18 +76,18 @@ search.addEventListener('click', () => {
             weatherDetails.classList.add('fadeIn');
             container.style.height = '610px';
 
-
+            const timezone = json.timezone; 
+            const now = new Date();
+            const utcTime = now.getTime() + now.getTimezoneOffset() * 60000;
+            const offsetTime = new Date(utcTime + timezone * 1000);
+            const hours = offsetTime.getHours().toString().padStart(2, '0');
+            const minutes = offsetTime.getMinutes().toString().padStart(2, '0');
+            const seconds = offsetTime.getSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            const time = document.querySelector('.time');
+            time.innerHTML = `Local Time ${timeString}`;
         });
 
-        const now = new Date();
-
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        const seconds = now.getSeconds().toString().padStart(2, '0');
-
-        const timeString = `${hours}:${minutes}:${seconds}`;
-        const time = document.querySelector('.time');
-        time.innerHTML = `${timeString}`
-
+        
 
 });
